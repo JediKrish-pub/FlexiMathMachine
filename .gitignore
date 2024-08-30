@@ -1,0 +1,10 @@
+# Ignore build output
+/target/
+*.class
+
+# Ignore IDE specific files
+/.idea/
+/*.iml
+
+# Ignore dependency directories
+/.mvn/

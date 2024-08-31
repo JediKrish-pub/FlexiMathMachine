@@ -21,11 +21,11 @@ public class UserInteractionService {
     public void start() {
         try (Scanner scanner = new Scanner(System.in)) {
             logger.info("Welcome to the Flexible Calculator!");
-            System.out.println("Input range: -1,000,000` "  + " to  1,000,000`");
-            System.out.println("Output range: -1,000,000` "  + " to  1,000,000`");
+            logger.info("Input range: -1,000,000` "  + " to  1,000,000`");
+            logger.info("Output range: -1,000,000` "  + " to  1,000,000`");
 
             while (true) {
-                System.out.print("Enter an expression to evaluate (or 'exit' to quit): ");
+                logger.info("Enter an expression to evaluate (or 'exit' to quit): ");
                 String input = scanner.nextLine();
 
                 if ("exit".equalsIgnoreCase(input)) {
@@ -35,13 +35,13 @@ public class UserInteractionService {
 
                 try {
                     double result = expressionEvaluator.evaluate(input);
-                    System.out.println("Result: " + result);
+                    logger.info("Result: " + result);
                 } catch (IllegalArgumentException e) {
                     logger.error("Input/Output value out of range: {}", e.getMessage());
-                    System.out.println("Error: " + e.getMessage());
+                    logger.info("Error: " + e.getMessage());
                 } catch (Exception e) {
                     logger.error("Error evaluating expression: {}", e.getMessage());
-                    System.out.println("Error: " + e.getMessage());
+                    logger.info("Error: " + e.getMessage());
                 }
             }
         }

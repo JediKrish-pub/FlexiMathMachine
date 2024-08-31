@@ -177,8 +177,7 @@ These ranges are set to ensure the calculator operates within safe and reasonabl
 - Improve Expression Parsing:
   - Enhance the parser to handle more complex expressions and functions.
   - Implement robust error handling for invalid expressions.
-
--  Metrics Collection:
+- Metrics Collection:
   - Integrate with external monitoring tools (e.g., Prometheus, Grafana).
   - Add detailed metrics and performance tracking.
 

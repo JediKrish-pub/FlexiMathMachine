@@ -26,7 +26,27 @@ public class ExpressionEvaluator {
 
     public double evaluate(String expression) {
         List<Token> tokens = expressionParser.parse(expression);
+        validateTokens(tokens); // Validate tokens before evaluation
         return evaluateTokens(tokens);
+    }
+
+    private void validateTokens(List<Token> tokens) {
+        // Add token validation logic here
+        // For example, check for invalid token sequences
+        if (tokens.isEmpty()) {
+            throw new IllegalArgumentException("Expression cannot be empty");
+        }
+
+        // Check for invalid token sequences
+        for (int i = 0; i < tokens.size(); i++) {
+            Token token = tokens.get(i);
+            if (token.getType() == TokenType.OPERATOR) {
+                // Check for operator at the beginning or end
+                if (i == 0 || i == tokens.size() - 1 || tokens.get(i + 1).getType() == TokenType.OPERATOR) {
+                    throw new IllegalArgumentException("Invalid operator placement");
+                }
+            }
+        }
     }
 
     private double evaluateTokens(List<Token> tokens) {
